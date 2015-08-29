@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "chrome_benri",
+  "description": "chrome_benri",
+  "version": "2.0",
+  "permissions": [
+    "activeTab",
+    "tabs", "*://*/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.blogger.com/*"],
+      "js": ["blogger.js"]
+    },
+    {
+      "matches": ["http://bokete.jp/*"],
+      "js": ["bokete.js"]
+    }
+  ],
+  "browser_action": {
+    "default_title": "chrome_benri"
+  },
+  "content_security_policy": "script-src 'self'; object-src 'self'"
+}
